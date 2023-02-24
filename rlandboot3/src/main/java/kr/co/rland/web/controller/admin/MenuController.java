@@ -1,0 +1,60 @@
+package kr.co.rland.web.controller.admin;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
+@Controller("adminMenuController")
+@RequestMapping("/admin/menu/")
+public class MenuController {
+
+	@GetMapping("list")
+	public String list(@RequestParam(name = "p", defaultValue = "1")int page,
+			@RequestParam(name = "q", required = false) String q,
+			HttpServletRequest req
+			) throws UnsupportedEncodingException {
+		
+//		System.out.println(page);
+//		System.out.println(q);
+		
+		String myCookie = "";
+		Cookie[] cookies = req.getCookies();
+		for (Cookie cookie : cookies) {
+			if (cookie.getName().equals("my")) {
+				myCookie = cookie.getValue();
+				break;
+			}
+		}
+		
+		myCookie = URLDecoder.decode(myCookie, "utf-8");
+		System.out.println(myCookie);
+		return "admin/menu/list";
+	}
+	
+	@GetMapping("detail")
+	public String detail() {
+		return null;
+	}
+	
+	@GetMapping("reg")
+	public String reg() {
+		return "admin/menu/reg";
+	}
+	
+	@PostMapping("reg")
+	public String reg(String str) {
+
+		
+		System.out.println("매뉴 등록 완료");
+		return "redirect:list";
+	}
+}
