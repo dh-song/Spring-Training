@@ -25,10 +25,16 @@
 			<fieldset>
 				<legend>파일 업로드 필드</legend>
 				<div>
-					<label>이미지 파일: </label>
-					<input type="file" name="img">
+					<label>이미지 파일2: </label>
+					<input type="file" name="imgs">
+				</div>
+				
+				<div>
+					<label>이미지 파일2: </label>
+					<input type="file" name="imgs">
 				</div>
 				<div>
+				
 					<input type="submit" value="등록">
 				</div>
 			</fieldset>
