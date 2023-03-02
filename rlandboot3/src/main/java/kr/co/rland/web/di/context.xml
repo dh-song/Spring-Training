@@ -8,7 +8,7 @@
     <!-- bean definitions here -->
 <!-- <bean class="kr.co.rland.web.repository.jdbc.jdbcMenuRepository"></bean> -->
 	<bean name="repository" class="kr.co.rland.web.repository.mybatis.MenuRepository"></bean>
-	<bean class="kr.co.rland.web.service.DefaultMenuService">
+	<bean name="service" class="kr.co.rland.web.service.DefaultMenuService">
 		<property name="repository" ref="repository"></property>
 	</bean>
 	

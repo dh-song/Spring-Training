@@ -4,29 +4,35 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import kr.co.rland.web.entity.Menu;
 import kr.co.rland.web.repository.MenuRepository;
 
-@Component
-public class jdbcMenuRepository implements MenuRepository {
-
+@Repository
+public class JdbcMenuRepository implements MenuRepository {
+	
+	@Autowired
+	private DataSource dataSource;
+	
 	@Override
 	public List<Menu> findAll() {
 		
 		String sql = "select id, name, price, regDate, categoryId from menu";
 
-		DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-		dataSourceBuilder.driverClassName("org.mariadb.jdbc.Driver");
-		dataSourceBuilder.url("jdbc:mariadb://db.newlecture.com:3306/rlanddb");
-		dataSourceBuilder.username("rland");
-		dataSourceBuilder.password("20220823");
-
-		DataSource dataSource = dataSourceBuilder.build();
+		//프로퍼티에 정의 오토와이어드
+//		DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
+//		dataSourceBuilder.driverClassName("org.mariadb.jdbc.Driver");
+//		dataSourceBuilder.url("jdbc:mariadb://db.newlecture.com:3306/rlanddb");
+//		dataSourceBuilder.username("rland");
+//		dataSourceBuilder.password("20220823");
+//
+//		DataSource dataSource = dataSourceBuilder.build();
 
 		JdbcTemplate template = new JdbcTemplate(dataSource);		
 		List<Menu> list = template.query(sql, new BeanPropertyRowMapper(Menu.class));
