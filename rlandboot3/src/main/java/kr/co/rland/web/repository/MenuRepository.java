@@ -10,8 +10,15 @@ import kr.co.rland.web.entity.Menu;
 public interface MenuRepository {
 //	@Select("select * from menu")
 	List<Menu> findAll();
+	List<Menu> findAll(
+			Integer offset, Integer size, 
+			String query, Integer categoryId, 
+			Integer price, String orderField,
+			String orderDir);
 	Menu findById(long id);
 	Menu insert(Menu menu);
 	Menu update(Menu menu);
 	void delete(long id);
+
 }
+	
