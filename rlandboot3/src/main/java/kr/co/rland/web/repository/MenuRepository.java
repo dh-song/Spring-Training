@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import kr.co.rland.web.entity.Menu;
 
-@Mapper
+//@Mapper
 public interface MenuRepository {
 //	@Select("select * from menu")
 	List<Menu> findAll();
@@ -15,9 +15,11 @@ public interface MenuRepository {
 			String query, Integer categoryId, 
 			Integer price, String orderField,
 			String orderDir);
+	List<Menu> findAllById(List<Long> ids);
+	List<Menu> findAllById(long ids);
 	Menu findById(long id);
 	Menu insert(Menu menu);
-	Menu update(Menu menu);
+	int update(Menu menu);
 	void delete(long id);
 
 }
