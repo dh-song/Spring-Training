@@ -12,6 +12,17 @@ public class Menu {
 	private Integer categoryId;
 	private long regMemberId;
 	
+	
+	
+	public Menu(String name, Integer price, String img, Integer categoryId, long regMemberId) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.img = img;
+		this.categoryId = categoryId;
+		this.regMemberId = regMemberId;
+	}
+
 	public Menu() {
 		
 	}
