@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.rland.web.entity.Menu;
 import kr.co.rland.web.repository.MenuRepository;
@@ -21,6 +22,20 @@ public class DefaultMenuService implements MenuService{
 
 	public void setRepository(MenuRepository repository) {
 		this.repository = repository;
+	}
+	
+	@Transactional
+	@Override
+	public void pointUp() {
+		Menu menu = new Menu();
+		menu.setId(797);
+		menu.setPrice(1000);
+		repository.update(menu);
+		
+		menu.setId(797);
+		menu.setPrice(30000);
+		repository.update(menu);
+		
 	}
 	
 	
