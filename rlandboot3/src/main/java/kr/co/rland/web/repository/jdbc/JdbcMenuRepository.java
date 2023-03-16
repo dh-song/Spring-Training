@@ -117,6 +117,18 @@ public class JdbcMenuRepository implements MenuRepository {
 		return null;
 	}
 
+	@Override
+	public List<Menu> findAllByIds(List<Long> ids) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int count(String query, Integer categoryId, Integer price) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 	
 	
 	

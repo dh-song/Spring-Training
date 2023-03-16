@@ -23,6 +23,8 @@ public interface MenuRepository {
 	Menu insert(Menu menu);
 	int update(Menu menu);
 	void delete(long id);
+	List<Menu> findAll();
+	List<Menu> findAllById(List<Long> ids);
 
 }
 	
