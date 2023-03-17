@@ -6,4 +6,8 @@ select * from menu where id=745;
 select * from member;
 select count(id) from menu where price > 0 and category_id = 1;
 select * from menu;
+select * from category;
 
+create view menu_view
+as
+select m.*, c.name category_name from menu m join Category c on m.category_id = c.id;

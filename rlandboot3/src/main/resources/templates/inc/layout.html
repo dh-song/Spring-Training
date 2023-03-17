@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,9 @@
 	<link href="../css/component/menu-category.css" type="text/css" rel="stylesheet" >
     <link href="../css/component/menu-section.css" type="text/css" rel="stylesheet" >
 	<link href="../css/component/search-header.css" type="text/css" rel="stylesheet" >
+	
+	<link href="../css/component/menu-detail.css" type="text/css" rel="stylesheet" >
+	<link href="../css/component/nutrition-info.css" type="text/css" rel="stylesheet" >
 
     <link href="../css/component.css" type="text/css" rel="stylesheet" >
     <link href="../css/buttons.css" type="text/css" rel="stylesheet" >
@@ -24,6 +27,12 @@
     <link href="../css/utils.css" type="text/css" rel="stylesheet" >    
 </head>
 <body>
-
+	<!-- header -->
+	<div th:replace="~{inc/header}"></div>
+	<!-- main -->
+	<div layout:fragment="main"></div>
+	
+	<!-- footer -->
+	<div th:replace="~{inc/footer}"></div>
 </body>
 </html>

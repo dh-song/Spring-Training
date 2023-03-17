@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.rland.web.entity.Menu;
+import kr.co.rland.web.entity.MenuView;
 import kr.co.rland.web.repository.MenuRepository;
 @Service
 public class DefaultMenuService implements MenuService{
@@ -36,6 +37,31 @@ public class DefaultMenuService implements MenuService{
 		menu.setPrice(30000);
 		repository.update(menu);
 		
+	}
+
+	@Override
+	public List<MenuView> getViewList(int page) {
+		List<MenuView> list = repository.findViewAll( page, null, null, null, null, null, null);
+		return list;
+	}
+
+	@Override
+	public List<MenuView> getViewList(int page, int categoryId) {
+		List<MenuView> list = repository.findViewAll(page, null, null, categoryId, null, null, null);
+		return list;
+	}
+
+	@Override
+	public List<MenuView> getViewList(int page, String query) {
+		List<MenuView> list = repository.findViewAll(page, null, query, null, null, null, null);
+		// TODO Auto-generated method stub
+		return list;
+	}
+
+	@Override
+	public List<MenuView> getViewList(int page, int categoryId, String query) {
+		List<MenuView> list = repository.findViewAll(page, null, query, categoryId, null, null, null);
+		return list;
 	}
 	
 	

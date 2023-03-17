@@ -14,6 +14,19 @@ public class Menu {
 	
 	
 	
+	
+	
+	public Menu(long id, String name, Integer price, String img, Date regDate, Integer categoryId, long regMemberId) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.img = img;
+		this.regDate = regDate;
+		this.categoryId = categoryId;
+		this.regMemberId = regMemberId;
+	}
+
 	public Menu(String name, Integer price, String img, Integer categoryId, long regMemberId) {
 		super();
 		this.name = name;
@@ -27,6 +40,7 @@ public class Menu {
 		
 	}
 
+	
 	public long getId() {
 		return id;
 	}
@@ -43,7 +57,7 @@ public class Menu {
 		this.name = name;
 	}
 
-	public int getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 
@@ -67,7 +81,7 @@ public class Menu {
 		this.regDate = regDate;
 	}
 
-	public int getCategoryId() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
 
