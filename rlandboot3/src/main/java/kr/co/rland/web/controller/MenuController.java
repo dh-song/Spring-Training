@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
+import kr.co.rland.web.entity.Menu;
 import kr.co.rland.web.entity.MenuView;
 import kr.co.rland.web.service.MenuService;
 
@@ -28,11 +28,18 @@ public class MenuController {
 //		service.getList(1, "쿼리");
 //		service.getList(1, 1, "쿼리");
 		model.addAttribute("list", list);
+		
+		
+		
 		return "menu/list";
 	}
 	
 	@RequestMapping("detail")
-	public String menuDetail() {
+	public String menuDetail(Long id, Model model) {
+		
+		Menu menu = service.getById(id);
+		model.addAttribute("menu", menu);
+		
 		return "menu/detail";
 	}
 }

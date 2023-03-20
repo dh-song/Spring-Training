@@ -63,6 +63,12 @@ public class DefaultMenuService implements MenuService{
 		List<MenuView> list = repository.findViewAll(page, null, query, categoryId, null, null, null);
 		return list;
 	}
+
+	@Override
+	public Menu getById(Long id) {
+		Menu menu = repository.findById(id);
+		return menu;
+	}
 	
 	
 }

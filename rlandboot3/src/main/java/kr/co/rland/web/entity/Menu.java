@@ -11,6 +11,7 @@ public class Menu {
 	private Date regDate;
 	private Integer categoryId;
 	private long regMemberId;
+	private String description;
 	
 	
 	
@@ -47,6 +48,16 @@ public class Menu {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getName() {

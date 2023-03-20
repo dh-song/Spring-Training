@@ -28,6 +28,14 @@
   </where>
 	</select>
 	
+<select id="findById" resultType="Menu">
+		select *
+		from menu
+		<where>   
+          id = #{id}
+  </where>
+	</select>
+	
 	<select id="findAll" resultType="Menu">
 		select *
 		from menu
