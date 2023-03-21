@@ -47,7 +47,7 @@
 				and price > #{price}
 			</if>
 			<if test="categoryId != null">
-				and categoryId = #{categoryId}
+				and category_id = #{categoryId}
 			</if>
 		</trim>
 		<if test=" orderField != null">
