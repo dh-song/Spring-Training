@@ -12,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import kr.co.rland.web.entity.Category;
 import kr.co.rland.web.entity.Menu;
 import kr.co.rland.web.entity.MenuView;
+import kr.co.rland.web.entity.RcmdMenuView;
+import kr.co.rland.web.service.CategoryService;
 import kr.co.rland.web.service.DefaultCategoryService;
 import kr.co.rland.web.service.MenuService;
+import kr.co.rland.web.service.RcmdMenuService;
 
 //@RestController
 @Controller
@@ -24,7 +27,10 @@ public class MenuController {
 	private MenuService service;
 	
 	@Autowired
-	private DefaultCategoryService categoryService;
+	private CategoryService categoryService;
+	
+	@Autowired
+	private RcmdMenuService rcmdMenuService;
 		
 	@RequestMapping("list")
 	public String menuList(
@@ -49,10 +55,15 @@ public class MenuController {
 	}
 	
 	@RequestMapping("detail")
-	public String menuDetail(Long id, Model model) {
+	public String menuDetail(long id, Model model) {
 		
 		Menu menu = service.getById(id);
+		List<RcmdMenuView> rcmdMenuList = rcmdMenuService.getViewListMenuId((int)id);
+		
+		
 		model.addAttribute("menu", menu);
+		model.addAttribute("rcmdMenuList", rcmdMenuList);
+		
 		
 		return "menu/detail";
 	}
