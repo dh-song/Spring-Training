@@ -15,7 +15,7 @@ public class DefaultRcmdMenuService implements RcmdMenuService {
 	RcmdMenuRepository repository;
 	
 	@Override
-	public List<RcmdMenuView> getViewListMenuId(int menuId) {
+	public List<RcmdMenuView> getViewListMenuId(long menuId) {
 		
 		return repository.findViewAllByMenuId(menuId);
 	}

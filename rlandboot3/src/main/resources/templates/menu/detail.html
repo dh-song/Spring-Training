@@ -10,7 +10,7 @@
 
 		<section class="cart">
 			<h1 class="d-none">장바구니</h1>
-			<span class="text-title3">커피음료</span>
+			<span class="text-title3" th:text="${categoryName}">커피음료</span>
 			<div class="icon icon-basket">1</div>
 		</section>
 
@@ -36,13 +36,17 @@
 				</article>
 
 				<div class="tab-div">
-					<a href="" class="btn btn-fill border-bottom-0 btn-size-1">Default
-						크기</a> <a href=""
-						class="btn btn-line border-bottom-0 border-left-0 btn-size-1">Large
+					<a href="" th:href="@{detail(id=${param.id})}"
+					th:classappend="(${param.op}==null) ? 'btn-fill' : 'btn-line'"
+					class="btn  border-bottom-0 btn-size-1">Default
+						크기</a>
+					 <a href="" th:href="@{detail(id=${param.id}, op=opt)}" 
+					 th:classappend="(${param.op}!=null) ? 'btn-fill' : 'btn-line'"
+						class="btn  border-bottom-0 border-left-0 btn-size-1">Large
 						크기</a>
 				</div>
 
-				<section class="nutrition-info">
+				<section class="nutrition-info" th:classappend="(${param.op}!=null) ? 'd-none'">
 					<header>
 						<div class="common-p">
 							<h1 class="text-normal">영양정보</h1>
@@ -77,7 +81,7 @@
 					<a href="" th:each="menu : ${rcmdMenuList}"> <img class="image-view-round"
 						src="https://images.unsplash.com/photo-1515442261605-65987783cb6a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
 						alt=""th:src="@{/image/menu/{img}(img=${menu.img})}"> <span th:text="${menu.name}">아몬드 쿠키</span>
-					</a> 
+					</a>
 				</div>
 			</section>
 		</section>

@@ -26,6 +26,7 @@ class CategoryRepositoryTest {
 //		cat.get
 		System.out.println(list);
 		System.out.println("완료");
+		
 	}
 
 }

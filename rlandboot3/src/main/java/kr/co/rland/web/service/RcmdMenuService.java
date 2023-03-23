@@ -5,5 +5,5 @@ import java.util.List;
 import kr.co.rland.web.entity.RcmdMenuView;
 
 public interface RcmdMenuService {
-	List<RcmdMenuView> getViewListMenuId(int menuId);
+	List<RcmdMenuView> getViewListMenuId(long id);
 }

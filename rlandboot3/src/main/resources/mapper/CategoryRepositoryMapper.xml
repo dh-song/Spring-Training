@@ -5,25 +5,30 @@
 <mapper namespace="kr.co.rland.web.repository.CategoryRepository">
 
 
-<select id="findAll" resultType="Category">
+	<select id="findAll" resultType="Category">
 		select *
 		from category
-		</select>
-	
+		<if test="categoryId != null">
+		<where>
+			id = #{categoryId}
+		</where>
+		</if>
+	</select>
+
 	<insert id="insert" parameterType="Category">
-	insert into category(name)
-	values(#{name})
+		insert into category(name)
+		values(#{name})
 	</insert>
-	
-	<update id="update" parameterType="Category" >
+
+	<update id="update" parameterType="Category">
 		update category
 		<trim prefix="SET" suffixOverrides=",">
-		  <if test="name != null">name=#{name},</if>
-		  </trim>
-		where id=#{id}	
+			<if test="name != null">name=#{name},</if>
+		</trim>
+		where id=#{id}
 	</update>
-	
+
 	<delete id="delete">
-	delete from category where id=${id}
+		delete from category where id=${id}
 	</delete>
 </mapper>

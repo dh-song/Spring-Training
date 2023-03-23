@@ -12,7 +12,7 @@ import kr.co.rland.web.entity.RcmdMenuView;
 @Mapper
 public interface RcmdMenuRepository {
 
-	List<RcmdMenuView> findViewAllByMenuId(int menuId);
+	List<RcmdMenuView> findViewAllByMenuId(long menuId);
 	int insert(RcmdMenuView rcmdMenu);
 	int delete(RcmdMenuView rcmdMenu);
 	

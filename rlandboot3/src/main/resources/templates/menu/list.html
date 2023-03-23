@@ -9,9 +9,9 @@
 		<header class="search-header">
 			<h1 class="text-title1-h1" th:text="${data}">알랜드 메뉴</h1>
 			<form action="list" method="get">
-				<input type="hidden" name="c" th:value="${param.c}">
-				<input type="text" name="q" th:value="${param.q}">
-				<input type="submit" class="icon icon-find">
+				<input type="hidden" name="c" th:value="${param.c}"> <input
+					type="text" name="q" th:value="${param.q}"> <input
+					type="submit" class="icon icon-find">
 			</form>
 		</header>
 		<aside class="aside-bar">
@@ -30,11 +30,12 @@
 				<h1 class="text-normal-bold">메뉴분류</h1>
 			</div>
 			<ul>
-			<li class="" th:class=" ${param.c}==null ? 'menu-selected'">
-			<a href="list">전체</a>
-			</li> 
-				<li th:each="c : ${categoryList}" th:class=" ${#strings.equals(param.c, c.id)} ? 'menu-selected'">
-				<a href="/menu/list" th:href="@{list(c=${c.id})}" th:text="${c.name}">전체</a>
+				<li class="" th:class=" ${param.c}==null ? 'menu-selected'"><a
+					href="list">전체</a></li>
+				<li th:each="c : ${categoryList}"
+					th:class=" ${#strings.equals(param.c, c.id)} ? 'menu-selected'">
+					<a href="/menu/list" th:href="@{list(c=${c.id})}"
+					th:text="${c.name}">전체</a>
 				</li>
 			</ul>
 		</nav>
@@ -56,7 +57,8 @@
 						</h1>
 						<div class="menu-img-box">
 							<a href="detail" th:href="@{detail(id=${menu.id})}"><img
-								class="menu-img" th:src="@{/image/menu/{img}(img=${menu.img})}" src="/image/product/12.png"></a>
+								class="menu-img" th:src="@{/image/menu/{img}(img=${menu.img})}"
+								src="/image/product/12.png"></a>
 						</div>
 						<div class="menu-price">4500 원</div>
 						<div class="menu-option-list">

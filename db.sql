@@ -11,3 +11,13 @@ select * from category;
 create view menu_view
 as
 select m.*, c.name category_name from menu m join Category c on m.category_id = c.id;
+
+select * from menu_view;
+select * from menu_view where 617;
+select * from category;
+
+select rm.*,
+       m.name,
+       m.img
+from rcmd_menu rm join menu m
+                    on rm.id = m.id;

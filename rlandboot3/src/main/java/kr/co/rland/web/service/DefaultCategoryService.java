@@ -20,4 +20,10 @@ public class DefaultCategoryService implements CategoryService {
 		return repository.findAll();
 	}
 
+	@Override
+	public String getNameById(int id) {
+		// TODO Auto-generated method stub
+		return repository.findAll(id).getName();
+	}
+
 }

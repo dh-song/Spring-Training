@@ -13,7 +13,7 @@ public interface CategoryRepository {
 //	@Select("select * from menu")
 //	List<Menu> findAll();
 	List<Category> findAll();
-	Category findById(int id);
+	Category findAll(int Id);
 	Menu insert(Category category);
 	int update(Category category);
 	void delete(int id);

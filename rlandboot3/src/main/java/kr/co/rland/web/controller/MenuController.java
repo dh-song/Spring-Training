@@ -58,9 +58,12 @@ public class MenuController {
 	public String menuDetail(long id, Model model) {
 		
 		Menu menu = service.getById(id);
-		List<RcmdMenuView> rcmdMenuList = rcmdMenuService.getViewListMenuId((int)id);
+		List<RcmdMenuView> rcmdMenuList = rcmdMenuService.getViewListMenuId(id);
+		
+		String categoryName = categoryService.getNameById(menu.getCategoryId());
 		
 		
+		model.addAttribute("categoryName", categoryName);
 		model.addAttribute("menu", menu);
 		model.addAttribute("rcmdMenuList", rcmdMenuList);
 		

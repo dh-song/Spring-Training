@@ -77,7 +77,7 @@ public class DefaultMenuService implements MenuService{
 	}
 
 	@Override
-	public Menu getById(Long id) {
+	public Menu getById(long id) {
 		Menu menu = repository.findById(id);
 		return menu;
 	}
