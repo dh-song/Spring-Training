@@ -3,7 +3,6 @@ package kr.co.rland.web.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +13,6 @@ import kr.co.rland.web.entity.Menu;
 import kr.co.rland.web.entity.MenuView;
 import kr.co.rland.web.entity.RcmdMenuView;
 import kr.co.rland.web.service.CategoryService;
-import kr.co.rland.web.service.DefaultCategoryService;
 import kr.co.rland.web.service.MenuService;
 import kr.co.rland.web.service.RcmdMenuService;
 
@@ -51,7 +49,7 @@ public class MenuController {
 		
 		
 		
-		return "menu/list";
+		return "menu/list3";
 	}
 	
 	@RequestMapping("detail")
@@ -68,6 +66,6 @@ public class MenuController {
 		model.addAttribute("rcmdMenuList", rcmdMenuList);
 		
 		
-		return "menu/detail";
+		return "menu/detail3";
 	}
 }

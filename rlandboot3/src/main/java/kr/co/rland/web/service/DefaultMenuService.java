@@ -18,7 +18,7 @@ public class DefaultMenuService implements MenuService{
 	@Override
 	public List<Menu> getList() {
 		// TODO Auto-generated method stub
-		return repository.findAll(0,10,"",1,3000,"regDate","desc");
+		return repository.findAll(0,10,"",1,3000,"reg_date","desc");
 	}
 
 	public void setRepository(MenuRepository repository) {

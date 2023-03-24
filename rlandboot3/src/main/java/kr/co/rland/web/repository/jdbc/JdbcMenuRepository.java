@@ -11,7 +11,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
+import kr.co.rland.web.entity.Category;
 import kr.co.rland.web.entity.Menu;
+import kr.co.rland.web.entity.MenuView;
 import kr.co.rland.web.repository.MenuRepository;
 
 //@Repository
@@ -127,6 +129,19 @@ public class JdbcMenuRepository implements MenuRepository {
 	public int count(String query, Integer categoryId, Integer price) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public List<MenuView> findViewAll(Integer offset, Integer size, String query, Integer categoryId, Integer price,
+			String orderField, String orderDir) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Category findCategoryById(int categoryId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

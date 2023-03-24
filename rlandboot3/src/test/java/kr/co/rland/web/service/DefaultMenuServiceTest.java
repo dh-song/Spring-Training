@@ -1,5 +1,7 @@
 package kr.co.rland.web.service;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.mybatis.spring.boot.test.autoconfigure.AutoConfigureMybatis;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ class DefaultMenuServiceTest {
 //		service.pointUp();
 //		List<MenuView> list = service.getViewList(1);
 //		System.out.println(list);
+		List<Menu> menus = service.getList();
+		System.out.println(menus);
 		Menu menu = service.getById(617L);
 		System.out.println(menu);
 		System.out.println("완료");

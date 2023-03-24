@@ -1,41 +1,64 @@
 package kr.co.rland.web.controller.api;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import jakarta.websocket.server.PathParam;
+import kr.co.rland.web.entity.Menu;
+import kr.co.rland.web.entity.MenuView;
+import kr.co.rland.web.service.MenuService;
+
 @RestController("ApiMenuController")
+@RequestMapping("menus")
 public class MenuController {
 	
-	@GetMapping("/menus")
-	public String getList(){
+	@Autowired
+	private MenuService service;
+	
+	@GetMapping
+	public List<MenuView> getList(
+			@RequestParam("p") int page,
+			@RequestParam(name="c", required = false) Integer categoryId,
+			@RequestParam(name="q", required = false) String query){
 		
-		return "menu List";
+		List<MenuView> menu = service.getViewList(page, categoryId, query);
+		
+		return menu;
 	}
 	
-	@GetMapping("/menus/3")
-	public String get(int id){
+	@GetMapping("{id}")
+	public Menu get(@PathVariable("id") int id){
+		//@PathParam 쿼리 variable은 값
 		
-		return "menu 3";
+		Menu menu = service.getById(id);
+		
+		return menu;
 	}
 	
-	@PutMapping("/menus/3")
-	public String edit(){
+	@PutMapping
+	public String edit(@PathVariable("id") int id){
 		
-		return "menu edit";
+		return "menu edit " + id;
 	}
 	
-	@DeleteMapping("/menus/3")
-	public String delete(int id){
+	@DeleteMapping("{id}")
+	public String delete(@PathVariable("id") int id){
 		
-		return "menu del";
+		return "menu del " + id;
 	}
 	
-	@PostMapping("/menus")
-	public String insert(){
+	@PostMapping
+	public String insert(@PathVariable("id") int id){
 		
-		return "menu insert";
+		return "menu insert " + id;
 	}
 }
