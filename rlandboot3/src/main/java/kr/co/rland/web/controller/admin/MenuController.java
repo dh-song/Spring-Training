@@ -12,6 +12,7 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.co.rland.web.entity.Menu;
+import kr.co.rland.web.entity.MenuView;
 import kr.co.rland.web.repository.MenuRepository;
 import kr.co.rland.web.service.MenuService;
 
@@ -39,32 +40,40 @@ public class MenuController {
 
 
 	@GetMapping("list")
-	public String list(Model model,@RequestParam(name = "p", defaultValue = "1")int page,
-			@RequestParam(name = "q", required = false) String q,
+	public String list(Model model,
+			@RequestParam(name = "p", defaultValue = "1")int page,
+			@RequestParam(name = "c", required = false) Integer categoryId,
+			@RequestParam(name = "q", required = false) String query,
 			HttpServletRequest req
 			) throws UnsupportedEncodingException {
+		
+		List<MenuView> list = service.getViewList(page, categoryId, query);
+		model.addAttribute("list",list);
+		return "admin/menu/list";
 		
 //		System.out.println(page);
 //		System.out.println(q);
 		
-		String myCookie = "";
-		Cookie[] cookies = req.getCookies();
-		for (Cookie cookie : cookies) {
-			if (cookie.getName().equals("my")) {
-				myCookie = cookie.getValue();
-				break;
-			}
-		}
 		
-		myCookie = URLDecoder.decode(myCookie, "utf-8");
-		
-		System.out.println(service.getClass());
-		List<Menu> list = service.getList();
-		model.addAllAttributes(list);
-		System.out.println(list);
-		
-		System.out.println(myCookie);
-		return "admin/menu/list";
+//		------------------------쿠키
+//		String myCookie = "";
+//		Cookie[] cookies = req.getCookies();
+//		for (Cookie cookie : cookies) {
+//			if (cookie.getName().equals("my")) {
+//				myCookie = cookie.getValue();
+//				break;
+//			}
+//		}
+//		
+//		myCookie = URLDecoder.decode(myCookie, "utf-8");
+//		
+//		System.out.println(service.getClass());
+//		List<Menu> list = service.getList();
+//		model.addAllAttributes(list);
+//		System.out.println(list);
+//		
+//		System.out.println(myCookie);
+	
 	}
 	
 	@GetMapping("detail")

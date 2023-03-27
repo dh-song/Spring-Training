@@ -3,6 +3,7 @@ package kr.co.rland.web.controller.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +27,7 @@ public class MenuController {
 	
 	@GetMapping
 	public List<MenuView> getList(
-			@RequestParam("p") int page,
+			@RequestParam(name="p", defaultValue = "1") int page,
 			@RequestParam(name="c", required = false) Integer categoryId,
 			@RequestParam(name="q", required = false) String query){
 		

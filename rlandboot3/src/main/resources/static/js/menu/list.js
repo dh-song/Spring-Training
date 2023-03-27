@@ -1,5 +1,6 @@
 window.addEventListener("load",function(){
 	let ul = document.querySelector(".menu-category>ul");
+	const menuList = document.querySelector(".menu-list");
 	
 	ul.onclick = function(e){
 		e.preventDefault();
@@ -7,12 +8,17 @@ window.addEventListener("load",function(){
 		if(tagName != 'LI' && tagName != 'A'){
 			return;
 		}
-	//let el = tagName == 'LI' ? e.target : e.target.
+		
+	let elLi = (tagName === 'LI') ? e.target : e.target.parentNode;
 	
-	let categoryId = 1;
+	
+	
+	let categoryId = elLi.dataset.cid;
+	
 	const request = new XMLHttpRequest();
 	request.onload = function(){
 		let menus = JSON.parse(request.responseText); //콜백 비동기
+		menuList.replaceChildren();
 		console.log(menus[0]);
 	};
 	request.open("GET", `http://localhost:8080/menus?c=${categoryId}`, true); //동기 true
