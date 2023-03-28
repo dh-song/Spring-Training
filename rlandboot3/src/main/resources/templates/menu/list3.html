@@ -6,10 +6,11 @@
 
 
 <main layout:fragment="main">
-<script type="text/javascript" src="/js/menu/list.js" defer="defer"></script>
+	<script type="text/javascript" src="/js/menu/list.js" defer="defer"></script>
 	<section>
 		<header class="search-header">
 			<h1 class="text-title1-h1" th:text="${data}">알랜드 메뉴</h1>
+			<input type="checkbox">
 			<form action="list" method="get">
 				<input type="hidden" name="c" th:value="${param.c}"> <input
 					type="text" name="q" th:value="${param.q}"> <input
@@ -62,7 +63,10 @@
 								class="menu-img" th:src="@{/image/menu/{img}(img=${menu.img})}"
 								src="/image/product/12.png"></a>
 						</div>
-						<div class="menu-price">4500 원</div>
+						<div class="menu-price"
+							th:text="${#numbers.formatInteger(menu.price,3,'COMMA')}+'원'">4500
+							원</div>
+						<!-- <div class="menu-price">4500 원</div> -->
 						<div class="menu-option-list">
 							<span class="menu-option"> <input
 								class="menu-option-input" type="checkbox"> <label>ICED</label>
