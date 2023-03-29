@@ -1,0 +1,9 @@
+Vue
+.createApp({
+	data(){
+		return{
+			test:"hell"
+		};
+	}
+})
+.mount("#main-section");

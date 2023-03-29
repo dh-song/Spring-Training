@@ -13,8 +13,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import kr.co.rland.web.entity.Menu;
 import kr.co.rland.web.entity.MenuView;
+import kr.co.rland.web.entity.RcmdMenuView;
 import kr.co.rland.web.repository.MenuRepository;
+import kr.co.rland.web.service.CategoryService;
 import kr.co.rland.web.service.MenuService;
+import kr.co.rland.web.service.RcmdMenuService;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -27,6 +30,11 @@ public class MenuController {
 	@Autowired
 	private MenuService service;
 	
+	@Autowired
+	private CategoryService categoryService;
+	
+	@Autowired
+	private RcmdMenuService rcmdMenuService;
 
 //	public MenuController(MenuRepository menuRepository) {
 //		super();
@@ -77,8 +85,17 @@ public class MenuController {
 	}
 	
 	@GetMapping("detail")
-	public String detail() {
-		return null;
+	public String detail(long id, Model model) {
+		Menu menu = service.getById(id);
+		List<RcmdMenuView> rcmdMenuList = rcmdMenuService.getViewListMenuId(id);
+		
+		String categoryName = categoryService.getNameById(menu.getCategoryId());
+		
+		
+		model.addAttribute("categoryName", categoryName);
+		model.addAttribute("menu", menu);
+		model.addAttribute("rcmdMenuList", rcmdMenuList);
+		return "/admin/menu/detail3";
 	}
 	
 	@GetMapping("reg")
