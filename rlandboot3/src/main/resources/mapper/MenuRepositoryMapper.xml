@@ -99,9 +99,9 @@
 		</trim>
 	</select>
 		
-	<insert id="insert" parameterType="Menu">
+	<insert id="insert" parameterType="Menu" >
 	insert into menu(name, price, img, category_id, reg_member_id)
-	values(#{name}, #{price}, #{img}, #{categoryId}, #{reg_memberId})
+	values(#{name}, #{price}, #{img}, #{categoryId}, #{regMemberId})
 	</insert>
 	
 	<update id="update" parameterType="Menu" >

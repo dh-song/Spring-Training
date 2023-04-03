@@ -60,9 +60,8 @@ public class MenuController {
 	
 	@PostMapping
 	public String insert(@RequestBody Menu menu){
-		System.out.println(menu.getName());
-		System.out.println(menu.getPrice());
-		
-		return "menu insert " + menu.getName() + menu.getPrice();
+		menu.setCategoryId(1);
+		String result = service.add(menu);
+		return result;
 	}
 }

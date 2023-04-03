@@ -81,6 +81,17 @@ public class DefaultMenuService implements MenuService{
 		Menu menu = repository.findById(id);
 		return menu;
 	}
+
+	@Override
+	public String add(Menu menu) {
+		String a = "ok";
+		int result = repository.insert(menu);
+		if (result !=1) {
+			a = "false";
+		}
+		return a;
+
+	}
 	
 	
 }

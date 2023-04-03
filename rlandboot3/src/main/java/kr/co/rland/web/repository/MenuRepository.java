@@ -27,7 +27,7 @@ public interface MenuRepository {
 	Menu findById(long id);
 	int count(String query, Integer categoryId, 
 			Integer price);
-	Menu insert(Menu menu);
+	int insert(Menu menu);
 	int update(Menu menu);
 	void delete(long id);
 	List<Menu> findAll();

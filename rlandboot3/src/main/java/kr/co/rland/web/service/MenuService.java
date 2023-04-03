@@ -13,5 +13,6 @@ public interface MenuService {
 	List<MenuView> getViewList(int page, String query);
 	List<MenuView> getViewList(int page, Integer categoryId, String query);
 	Menu getById(long id);
+	String add(Menu menu);
 	
 }
