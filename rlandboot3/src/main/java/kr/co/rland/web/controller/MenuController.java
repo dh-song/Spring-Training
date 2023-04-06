@@ -17,7 +17,7 @@ import kr.co.rland.web.service.MenuService;
 import kr.co.rland.web.service.RcmdMenuService;
 
 //@RestController
-@Controller
+//@Controller
 @RequestMapping("/menu")
 public class MenuController {
 	

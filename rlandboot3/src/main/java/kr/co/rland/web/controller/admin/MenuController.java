@@ -23,7 +23,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.List;
 
-@Controller("adminMenuController")
+//@Controller("adminMenuController")
 @RequestMapping("/admin/menu/")
 public class MenuController {
 	
